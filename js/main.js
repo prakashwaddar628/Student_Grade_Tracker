@@ -17,10 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Adds row to table
-        const table = document.getElementById("students");
-        const row = table.insertRow();
-        row.insertCell(0).textContent = name;
-        row.insertCell(1).textContent = score;
-        row.insertCell(2).textContent = grade;
+        const table = document.getElementById("display").getElementsByTagName('tbody')[0] || document.getElementById("display").appendChild(document.createElement('tbody'));
+        const newRow = table.insertRow();
+        newRow.insertCell(0).textContent = name;
+        newRow.insertCell(1).textContent = score;
+        newRow.insertCell(2).textContent = grade;
+
+        // Clear input fields after adding
+        document.getElementById("name").value = "";
+        document.getElementById("marks").value = "";
     });
 });
